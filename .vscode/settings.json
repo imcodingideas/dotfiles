@@ -1,0 +1,34 @@
+{
+  "workbench.colorTheme": "Cobalt2",
+  "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 17,
+  "editor.lineHeight": 25,
+  "editor.letterSpacing": 0.5,
+  "files.trimTrailingWhitespace": true,
+  "editor.fontWeight": "400",
+  "prettier.eslintIntegration": true,
+  // this isn't really underline-thin but we hack it to be a thicker cursor
+  "editor.cursorStyle": "underline-thin",
+  "editor.cursorBlinking": "solid",
+  "vscode_custom_css.imports": [
+    "https://raw.githubusercontent.com/wesbos/cobalt2-vscode/master/cobalt2-custom-hacks.css",
+    "/Users/joseph/vscodestyles.css"
+  ],
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.stablePeek": true,
+  "workbench.fontAliasing": "antialiased",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
+  "emmet.syntaxProfiles": {
+    "javascript": "html",
+    "xml": {
+      "attr_quotes": "single"
+    }
+  },
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "editor.formatOnSave": true
+}
