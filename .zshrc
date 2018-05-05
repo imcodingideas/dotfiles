@@ -1,25 +1,22 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to my oh-my-zsh installation.
-export ZSH=/Users/joseph/.oh-my-zsh
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/apple/.oh-my-zsh
 
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="cobalt2"
 
-# plugins https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
-plugins=(git cloud app node npm bower osx extract virtualenv pip python)
+plugins=(git cloud app node npm bower osx extract virtualenv pip python django)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-export ANDROID_HOME=${HOME}/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tool
-
-## Basic Aliases
-alias db="cd ~/Dropbox/"
 alias h="cd ~/"
 alias ll='ls -FGlAhp' # Preferred 'ls' implementation
 
@@ -33,7 +30,7 @@ alias dsclean='find . -type f -name .DS_Store -print0 | xargs -0 rm' #recursivel
 alias startpg='brew services start postgresql'
 alias stoppg='brew services stop postgresql'
 alias startmysql='brew services start mysql' #To connect run: mysql -uroot
-alias stopmysq='brew services stop mysql'
+alias stopmysql='brew services stop mysql'
 alias sdd='docker stop $(docker ps -a -q)' # Shut down docker
 alias nr='npm run'
 
@@ -83,11 +80,12 @@ alias serve='python -m SimpleHTTPServer'
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-eval "$(rbenv init -)"
-
-eval $(thefuck --alias)
 
 export PATH="$HOME/.yarn/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+eval "$(rbenv init -)"
+
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
