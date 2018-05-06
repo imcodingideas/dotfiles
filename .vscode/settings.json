@@ -6,7 +6,7 @@
   // this isn't really underline-thin but we hack it to be a thicker cursor
   "vscode_custom_css.imports": [
     "https://raw.githubusercontent.com/wesbos/cobalt2-vscode/master/cobalt2-custom-hacks.css",
-    "/Users/apple/vscodestyles.css"
+    "/Users/joseph/vscodestyles.css"
   ],
   "editor.cursorStyle": "underline-thin",
   "editor.cursorBlinking": "solid",
