@@ -1,3 +1,16 @@
+# Paths
+export PATH=${PATH}:/bin
+export PATH=${PATH}:/usr/bin
+export PATH=${PATH}:/usr/local/bin
+export PATH=${PATH}:/usr/local/opt/qt/bin
+export PATH=${PATH}:/sbin
+export PATH=${PATH}:/usr/sbin
+export PATH=${PATH}:/usr/local/sbin
+export PATH=${PATH}:/usr/local/git/bin
+export PATH=${PATH}:~/.ssh/rsa_id
+export PATH=${PATH}:~/.rvm/bin
+export PATH=${PATH}:~/.composer/vendor/bin
+
 export ZSH="/Users/joseph/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -8,7 +21,6 @@ source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export LANG=en_US.UTF-8
-export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Functions 
 [ -f ~/.zsh_functions ] && source ~/.zsh_functions
@@ -16,15 +28,11 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Aliases 
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH=$PATH:$HOME/.composer/vendor/bin
-
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-export PATH="$PATH:$HOME/.rvm/bin"
 eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"export PATH=/Users/joseph/.rbenv/shims:/Users/joseph/.rbenv/shims:~/.composer/vendor/bin:/usr/local/opt/qt/bin:/Users/joseph/.rbenv/shims:/Users/joseph/.rbenv/shims:/usr/local/opt/qt/bin:/Users/joseph/.rbenv/shims:/Users/joseph/.rbenv/shims:/usr/local/opt/qt/bin:/Users/joseph/.rbenv/shims:/Users/joseph/.rbenv/shims:/usr/local/opt/qt/bin:/Users/joseph/.rbenv/shims:/Users/joseph/.rbenv/shims:/usr/local/opt/qt/bin:/Users/joseph/.nvm/versions/node/v12.22.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/joseph/.rvm/bin:/usr/local/opt/fzf/bin:/Users/joseph/.rvm/bin:/Users/joseph/.rvm/bin:/Users/joseph/.rvm/bin:/Users/joseph/.rvm/bin:/Users/joseph/.composer/vendor/bin
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
