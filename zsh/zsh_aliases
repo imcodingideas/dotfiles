@@ -1,3 +1,7 @@
+#!/usr/bin/env zsh
+#
+# zsh Aliases
+
 alias h="cd ~/"
 alias ll='ls -FGlAhp'
 alias zs="source ~/.zshrc"

@@ -5,11 +5,12 @@
 - clean: ['~']
 
 - link:
-    ~/.zshrc: zshrc
+    # zsh
+    ~/.zshrc: zsh/zshrc
+    ~/.zsh_aliases: zsh/zsh_aliases
     # git
     ~/.gitignore_global: git/gitignore_global
     ~/.gitconfig: git/gitconfig
-    ~/.zsh_aliases: zsh_aliases
 
 - create:
     - ~/Code
