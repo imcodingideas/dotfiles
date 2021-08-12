@@ -1,19 +1,13 @@
 [user]
 	name = Joseph Chambers
 	email = joseph@michael-chambers.com
-[diff]
-    tool = default-difftool
-[difftool "default-difftool"]
-    cmd = code --new-window --wait --diff $LOCAL $REMOTE
-[core]
-	editor = code --wait
+[github]
+	user = imcodingideas
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-[github]
-	user = imcodingideas
 [color]
 	ui = true
 [color "diff-highlight"]

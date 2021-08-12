@@ -19,8 +19,7 @@ git clone https://github.com/imcodingideas/dotfiles.git ~/.dotfiles
 3. Create symlinks in the Home directory to the real files in the repo.
 
 ```zsh
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+./install
 ```
 
 4. Install Homebrew, followed by the software listed in the Brewfile.
