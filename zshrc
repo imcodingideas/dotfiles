@@ -78,9 +78,8 @@ export LANG=en_US.UTF-8
 
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-alias h="cd ~/"
-alias ll='ls -FGlAhp'
-alias zs="source ~/.zshrc"
+# Aliases 
+[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
 # Find and kill port. i.e. kp 3000
 function kp() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
