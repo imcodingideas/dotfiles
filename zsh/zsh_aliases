@@ -5,3 +5,6 @@
 alias h="cd ~/"
 alias ll='ls -FGlAhp'
 alias zs="source ~/.zshrc"
+
+# Run dotfiles installer
+alias dotinstall="~/.dotfiles/install"
