@@ -6,7 +6,9 @@
 
 - link:
     ~/.zshrc: zshrc
-    ~/.gitconfig: gitconfig
+    # git
+    ~/.gitignore_global: git/gitignore_global
+    ~/.gitconfig: git/gitconfig
     ~/.zsh_aliases: zsh_aliases
 
 - create:

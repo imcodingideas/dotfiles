@@ -1,8 +1,12 @@
 [user]
-	name = Joseph Chambers
-	email = joseph@michael-chambers.com
+  name = Joseph Chambers
+  email = joseph@michael-chambers.com
 [github]
-	user = imcodingideas
+  user = imcodingideas
+[credential]
+  helper = osxkeychain
+[core]
+  excludesfile = ~/.gitignore_global
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
