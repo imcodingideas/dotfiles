@@ -1,6 +1,8 @@
 - defaults:
     link:
+      create: true
       relink: true
+      force: true
 
 - clean: ['~']
 
@@ -12,6 +14,13 @@
     # git
     ~/.gitignore_global: git/gitignore_global
     ~/.gitconfig: git/gitconfig
+    # vim
+    ~/.config/nvim/init.vim: vim/init.vim
 
 - create:
     - ~/Code
+    - ~/.config/nvim/undo
+
+- shell:
+  - description: Hushing login
+    command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
