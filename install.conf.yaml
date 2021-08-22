@@ -20,6 +20,8 @@
     ~/.config/nvim/init.vim: vim/init.vim
     ~/.config/nvim/autoload/plug.vim: vim/autoload/plug.vim
     ~/.config/nvim/vim-plug/plugins.vim: vim/vim-plug/plugins.vim
+    ~/.config/nvim/general/settings.vim: vim/general/settings.vim
+    ~/.config/nvim/keys/mappings.vim: vim/keys/mappings.vim
 
 - create:
     - ~/Code
