@@ -22,6 +22,7 @@
     ~/.config/nvim/vim-plug/plugins.vim: vim/vim-plug/plugins.vim
     ~/.config/nvim/general/settings.vim: vim/general/settings.vim
     ~/.config/nvim/keys/mappings.vim: vim/keys/mappings.vim
+    ~/.config/nvim/themes/onedark.vim: vim/themes/onedark.vim
 
 - create:
     - ~/Code
