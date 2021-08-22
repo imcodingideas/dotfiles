@@ -17,5 +17,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     " Themes
     Plug 'joshdick/onedark.vim'
+    " Git
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
 
 call plug#end()
