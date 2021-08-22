@@ -1,4 +1,1 @@
-call plug#begin(stdpath('data') . '/plugged')
-
-" Initialize plugin system
-call plug#end()
+source $HOME/.config/nvim/vim-plug/plugins.vim

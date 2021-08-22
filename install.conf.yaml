@@ -18,6 +18,8 @@
     ~/.composer/composer.json: composer/composer.json
     # vim
     ~/.config/nvim/init.vim: vim/init.vim
+    ~/.config/nvim/autoload/plug.vim: vim/autoload/plug.vim
+    ~/.config/nvim/vim-plug/plugins.vim: vim/vim-plug/plugins.vim
 
 - create:
     - ~/Code
