@@ -23,6 +23,7 @@
     ~/.config/nvim/general/settings.vim: vim/general/settings.vim
     ~/.config/nvim/keys/mappings.vim: vim/keys/mappings.vim
     ~/.config/nvim/themes/onedark.vim: vim/themes/onedark.vim
+    ~/.config/nvim/themes/airline.vim: vim/themes/airline.vim
     ~/.config/nvim/plug-config/coc.vim: vim/plug-config/coc.vim
     ~/.config/nvim/coc-settings.json: vim/coc-settings.json
 

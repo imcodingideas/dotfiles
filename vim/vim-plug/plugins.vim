@@ -22,7 +22,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-rhubarb'
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+    " Status Line
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
