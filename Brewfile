@@ -6,7 +6,6 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "stripe/stripe-cli"
 tap "universal-ctags/universal-ctags"
-tap "wez/wezterm"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
@@ -95,7 +94,5 @@ cask "iterm2"
 cask "jet"
 # Video chat, voice call and instant messaging application
 cask "skype"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
 # Desktop client for WhatsApp
 cask "whatsapp"

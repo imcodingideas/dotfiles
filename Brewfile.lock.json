@@ -24,9 +24,6 @@
       },
       "universal-ctags/universal-ctags": {
         "revision": "c84df0fc89f3a63ce5438eb59244ec2080352c0d"
-      },
-      "wez/wezterm": {
-        "revision": "9141fbcb6edcb4e221abafd3dac06315013d477c"
       }
     },
     "brew": {
@@ -1319,12 +1316,6 @@
         "version": "8.75.0.140",
         "options": {
           "full_name": "skype"
-        }
-      },
-      "wezterm": {
-        "version": "20210814-124438,54e29167",
-        "options": {
-          "full_name": "wezterm"
         }
       },
       "whatsapp": {
