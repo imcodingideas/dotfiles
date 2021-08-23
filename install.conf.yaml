@@ -23,6 +23,8 @@
     ~/.config/nvim/general/settings.vim: vim/general/settings.vim
     ~/.config/nvim/keys/mappings.vim: vim/keys/mappings.vim
     ~/.config/nvim/themes/onedark.vim: vim/themes/onedark.vim
+    ~/.config/nvim/plug-config/coc.vim: vim/plug-config/coc.vim
+    ~/.config/nvim/coc-settings.json: vim/coc-settings.json
 
 - create:
     - ~/Code
@@ -31,3 +33,5 @@
 - shell:
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
+  - description: Telling gatekeeper to allow unidentified developers
+    command: "sudo spctl --master-disable"

@@ -20,5 +20,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Git
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
+    " Intellisense
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 call plug#end()
+
+" Automatically install missing plugins on startup
+autocmd VimEnter *
+  \  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall | q
+  \| endif
