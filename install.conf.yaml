@@ -31,9 +31,11 @@
     ~/.config/nvim/lua/plug-colorizer.lua: vim/lua/plug-colorizer.lua
     ~/.config/nvim/plug-config/rainbow.vim: vim/plug-config/rainbow.vim
     ~/.config/nvim/plug-config/signify.vim: vim/plug-config/signify.vim
+    ~/.config/nvim/plug-config/start-screen.vim: vim/plug-config/start-screen.vim
 
 - create:
     - ~/Code
+    - ~/.config/nvim/session
     - ~/.config/nvim/undo
 
 - shell:

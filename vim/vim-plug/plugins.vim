@@ -34,6 +34,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Colors
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'junegunn/rainbow_parentheses.vim'
+    " Start Screen
+    Plug 'mhinz/vim-startify'
 call plug#end()
 
 " Automatically install missing plugins on startup
