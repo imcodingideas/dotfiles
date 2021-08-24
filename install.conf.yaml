@@ -30,6 +30,7 @@
     ~/.config/nvim/coc-settings.json: vim/coc-settings.json
     ~/.config/nvim/lua/plug-colorizer.lua: vim/lua/plug-colorizer.lua
     ~/.config/nvim/plug-config/rainbow.vim: vim/plug-config/rainbow.vim
+    ~/.config/nvim/plug-config/signify.vim: vim/plug-config/signify.vim
 
 - create:
     - ~/Code
