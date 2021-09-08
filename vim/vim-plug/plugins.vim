@@ -16,7 +16,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     " Themes
-    Plug 'joshdick/onedark.vim'
+    " Plug 'joshdick/onedark.vim'
+    Plug 'tomasr/molokai'
     " Git
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
