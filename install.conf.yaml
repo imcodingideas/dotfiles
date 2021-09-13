@@ -33,6 +33,8 @@
     ~/.config/nvim/plug-config/rainbow.vim: vim/plug-config/rainbow.vim
     ~/.config/nvim/plug-config/signify.vim: vim/plug-config/signify.vim
     ~/.config/nvim/plug-config/start-screen.vim: vim/plug-config/start-screen.vim
+    # alacritty
+    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
 
 - create:
     - ~/Code
