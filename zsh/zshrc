@@ -1,6 +1,7 @@
 # Paths
 export PATH=${PATH}:/bin
 export PATH=${PATH}:/usr/bin
+export PATH=${PATH}:~/.local/bin
 export PATH=${PATH}:/usr/local/bin
 export PATH=${PATH}:/usr/local/opt/qt/bin
 export PATH=${PATH}:/sbin
