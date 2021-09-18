@@ -6,5 +6,11 @@ alias h="cd ~/"
 alias ll='ls -FGlAhp'
 alias zs="source ~/.zshrc"
 
+# tmux
+alias tm="tmux"
+alias tml="tmux ls"
+alias tma="tmux attach -t \$(tmux ls -F '#{session_name}' | fzf)"
+alias tmpl="tmuxp load ." # tmuxp load session
+
 # Run dotfiles installer
 alias dotinstall="~/.dotfiles/install"
