@@ -16,7 +16,7 @@ export ZSH="/Users/joseph/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git brew rails node osx nvm zsh-autosuggestions)
+plugins=(git brew rails node macos nvm zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
