@@ -12,21 +12,20 @@ export PATH=${PATH}:~/.ssh/rsa_id
 export PATH=${PATH}:~/.rvm/bin
 export PATH=${PATH}:~/.composer/vendor/bin
 
-export ZSH="/Users/joseph/.oh-my-zsh"
-
-ZSH_THEME="robbyrussell"
-
+ZSH_THEME="shades-of-purple"
 plugins=(git brew rails node macos nvm zsh-autosuggestions)
+
+ZSH=$HOME/.oh-my-zsh
 
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export LANG=en_US.UTF-8
 
-# Functions 
+# Functions
 [ -f ~/.zsh_functions ] && source ~/.zsh_functions
 
-# Aliases 
+# Aliases
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
