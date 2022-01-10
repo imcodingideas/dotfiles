@@ -3,3 +3,6 @@
 .gitignore.d
 
 node_modules
+
+# Compiled Lua sources
+luac.out

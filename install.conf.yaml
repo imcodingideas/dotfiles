@@ -4,7 +4,7 @@
       relink: true
       force: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     # zsh
@@ -18,21 +18,23 @@
     # php
     ~/.composer/composer.json: composer/composer.json
     # vim
-    ~/.config/nvim/init.vim: vim/init.vim
-    ~/.config/nvim/autoload/plug.vim: vim/autoload/plug.vim
-    ~/.config/nvim/vim-plug/plugins.vim: vim/vim-plug/plugins.vim
-    ~/.config/nvim/general/settings.vim: vim/general/settings.vim
-    ~/.config/nvim/keys/mappings.vim: vim/keys/mappings.vim
-    ~/.config/nvim/themes/onedark.vim: vim/themes/onedark.vim
-    ~/.config/nvim/themes/molokai.vim: vim/themes/molokai.vim
-    ~/.config/nvim/themes/airline.vim: vim/themes/airline.vim
-    ~/.config/nvim/plug-config/coc.vim: vim/plug-config/coc.vim
-    ~/.config/nvim/plug-config/fzf.vim: vim/plug-config/fzf.vim
-    ~/.config/nvim/coc-settings.json: vim/coc-settings.json
-    ~/.config/nvim/lua/plug-colorizer.lua: vim/lua/plug-colorizer.lua
-    ~/.config/nvim/plug-config/rainbow.vim: vim/plug-config/rainbow.vim
-    ~/.config/nvim/plug-config/signify.vim: vim/plug-config/signify.vim
-    ~/.config/nvim/plug-config/start-screen.vim: vim/plug-config/start-screen.vim
+    ~/.config/nvim/init.lua: vim/init.lua
+    ~/.config/nvim/lua/user/options.lua: vim/lua/user/options.lua
+    # ~/.config/nvim/init.vim: vim/init.vim
+    # ~/.config/nvim/autoload/plug.vim: vim/autoload/plug.vim
+    # ~/.config/nvim/vim-plug/plugins.vim: vim/vim-plug/plugins.vim
+    # ~/.config/nvim/general/settings.vim: vim/general/settings.vim
+    # ~/.config/nvim/keys/mappings.vim: vim/keys/mappings.vim
+    # ~/.config/nvim/themes/onedark.vim: vim/themes/onedark.vim
+    # ~/.config/nvim/themes/molokai.vim: vim/themes/molokai.vim
+    # ~/.config/nvim/themes/airline.vim: vim/themes/airline.vim
+    # ~/.config/nvim/plug-config/coc.vim: vim/plug-config/coc.vim
+    # ~/.config/nvim/plug-config/fzf.vim: vim/plug-config/fzf.vim
+    # ~/.config/nvim/coc-settings.json: vim/coc-settings.json
+    # ~/.config/nvim/lua/plug-colorizer.lua: vim/lua/plug-colorizer.lua
+    # ~/.config/nvim/plug-config/rainbow.vim: vim/plug-config/rainbow.vim
+    # ~/.config/nvim/plug-config/signify.vim: vim/plug-config/signify.vim
+    # ~/.config/nvim/plug-config/start-screen.vim: vim/plug-config/start-screen.vim
     # alacritty
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
 
@@ -42,7 +44,7 @@
     - ~/.config/nvim/undo
 
 - shell:
-  - description: Hushing login
-    command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
-  - description: Telling gatekeeper to allow unidentified developers
-    command: "sudo spctl --master-disable"
+    - description: Hushing login
+      command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
+    - description: Telling gatekeeper to allow unidentified developers
+      command: "sudo spctl --master-disable"
