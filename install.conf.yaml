@@ -22,7 +22,8 @@
     ~/.config/nvim/lua/user/options.lua: vim/lua/user/options.lua
     ~/.config/nvim/lua/user/keymaps.lua: vim/lua/user/keymaps.lua
     ~/.config/nvim/lua/user/plugins.lua: vim/lua/user/plugins.lua
-    ~/.config/nvim/lua/user/colorscheme.lua: vim/lua/user/colorscheme.lua
+    ~/.config/nvim/lua/user/colorscheme.lua: vim/lua/user/colorscheme.lua 
+    ~/.config/nvim/lua/user/cmp.lua: vim/lua/user/cmp.lua
     # ~/.config/nvim/init.vim: vim/init.vim
     # ~/.config/nvim/autoload/plug.vim: vim/autoload/plug.vim
     # ~/.config/nvim/vim-plug/plugins.vim: vim/vim-plug/plugins.vim
