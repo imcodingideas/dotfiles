@@ -21,6 +21,7 @@
     ~/.config/nvim/init.lua: vim/init.lua
     ~/.config/nvim/lua/user/options.lua: vim/lua/user/options.lua
     ~/.config/nvim/lua/user/keymaps.lua: vim/lua/user/keymaps.lua
+    ~/.config/nvim/lua/user/plugins.lua: vim/lua/user/plugins.lua
     # ~/.config/nvim/init.vim: vim/init.vim
     # ~/.config/nvim/autoload/plug.vim: vim/autoload/plug.vim
     # ~/.config/nvim/vim-plug/plugins.vim: vim/vim-plug/plugins.vim
@@ -36,8 +37,6 @@
     # ~/.config/nvim/plug-config/rainbow.vim: vim/plug-config/rainbow.vim
     # ~/.config/nvim/plug-config/signify.vim: vim/plug-config/signify.vim
     # ~/.config/nvim/plug-config/start-screen.vim: vim/plug-config/start-screen.vim
-    # alacritty
-    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
 
 - create:
     - ~/Code
