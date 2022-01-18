@@ -21,7 +21,6 @@
     ~/.config/nvim/:
       glob: true
       path: vim/*
-      relink: true
 
 - create:
     - ~/Code
