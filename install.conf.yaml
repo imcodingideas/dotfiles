@@ -18,18 +18,10 @@
     # php
     ~/.composer/composer.json: composer/composer.json
     # vim
-    ~/.config/nvim/init.lua: vim/init.lua
-    ~/.config/nvim/lua/user/options.lua: vim/lua/user/options.lua
-    ~/.config/nvim/lua/user/keymaps.lua: vim/lua/user/keymaps.lua
-    ~/.config/nvim/lua/user/plugins.lua: vim/lua/user/plugins.lua
-    ~/.config/nvim/lua/user/colorscheme.lua: vim/lua/user/colorscheme.lua
-    ~/.config/nvim/lua/user/cmp.lua: vim/lua/user/cmp.lua
-    ~/.config/nvim/lua/user/lsp/init.lua: vim/lua/user/lsp/init.lua
-    ~/.config/nvim/lua/user/lsp/lsp-installer.lua: vim/lua/user/lsp/lsp-installer.lua
-    ~/.config/nvim/lua/user/lsp/handlers.lua: vim/lua/user/lsp/handlers.lua
-    ~/.config/nvim/lua/user/lsp/settings/jsonls.lua: vim/lua/user/lsp/settings/jsonls.lua
-    ~/.config/nvim/lua/user/lsp/settings/pyright.lua: vim/lua/user/lsp/settings/pyright.lua
-    ~/.config/nvim/lua/user/lsp/settings/sumneko_lua.lua: vim/lua/user/lsp/settings/sumneko_lua.lua
+    ~/.config/nvim/:
+      glob: true
+      path: vim/*
+      relink: true
 
 - create:
     - ~/Code
