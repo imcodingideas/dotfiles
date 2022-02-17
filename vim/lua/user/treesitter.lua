@@ -24,4 +24,8 @@ configs.setup {
     -- termcolors = {} -- table of colour name strings
   },
   indent = { enable = true, disable = { "yaml" } },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
 }
