@@ -5,15 +5,6 @@
 # Find and kill port. i.e. kp 3000
 function kp() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
 
-# Overridden 'cd' to use 'z' and handle 'cd -' properly
-cd() {
-    if [[ "$1" == "-" ]]; then
-        builtin cd -
-    else
-        z "$@"
-    fi
-}
-
 auto-switch-node-version() {
   NVMRC_PATH=$(nvm_find_nvmrc)
   CURRENT_NODE_VERSION=$(nvm version)
