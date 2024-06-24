@@ -3,8 +3,9 @@
 # zsh Aliases
 
 alias h="cd ~/"
-alias ll='ls -FGlAhp'
+alias ll="eza --git --time-style relative -al"
 alias zs="source ~/.zshrc"
+alias restore-from="git restore --source"
 
 # tmux
 alias tm="tmux"

@@ -1,6 +1,10 @@
 # dotfiles
 My shell is my castle and here are my dotfiles
 
+Please refrain from forking or cloning this repository. It's designed for personal use and inspiration, rather than full replication. If you notice anything unusual or incorrect, please open an issue instead.
+
+NOTE: I might be going a bit overboard with this, but it’s my house, and I’m all for a bit of overengineering if I feel like it! 😅
+
 ## Steps to bootstrap a new Mac
 
 1. Install Apple's Command Line Tools, which are prerequisites for Git and Homebrew.
@@ -38,4 +42,13 @@ brew bundle --file ~/.dotfiles/Brewfile
 
 # ...or move to the directory first.
 cd ~/.dotfiles && brew bundle
+```
+
+5. To maintain a healthy Brewfile
+```zsh
+# The describe flag adds comments above the brew name
+brew bundle dump --describe --force
+
+# Update the lock file and install
+brew bundle --file=Brewfile
 ```
