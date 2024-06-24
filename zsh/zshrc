@@ -36,6 +36,7 @@ eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export NPM_TOKEN=$(op item get "ACCESS_TOKENS" --field "NPM_TOKEN")
+export ALLE_ELEMENTS_TOKEN=$(op item get "ACCESS_TOKENS" --field "ALLE_ELEMENTS_TOKEN")
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
