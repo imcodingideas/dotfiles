@@ -12,6 +12,8 @@
     ~/.zsh_functions: zsh/zsh_functions
     ~/.zsh_aliases: zsh/zsh_aliases
     ~/.fzf.zsh: zsh/fzf.zsh
+    # alacritty
+    ~/.config/alacritty/alacritty.toml: alacritty/alacritty.toml
     # git
     ~/.gitignore_global: git/gitignore_global
     ~/.gitconfig: git/gitconfig
