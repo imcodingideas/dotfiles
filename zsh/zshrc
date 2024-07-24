@@ -37,6 +37,16 @@ eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export NPM_TOKEN=$(op item get "ACCESS_TOKENS" --field "NPM_TOKEN")
 export ALLE_ELEMENTS_TOKEN=$(op item get "ACCESS_TOKENS" --field "ALLE_ELEMENTS_TOKEN")
+export GITHUB_PACKAGES_TOKEN=$(op item get "ACCESS_TOKENS" --field "github_packages_token")
+
+if [[ -z "GITHUB_PACKAGES_TOKEN" ]]; then
+    echo "Error: Failed to retrieve GitHub token from 1Password."
+    exit 1
+fi
+
+# Update ~/.gem/credentials file
+echo "---" > ~/.gem/credentials
+echo ":github: $GITHUB_PACKAGES_TOKEN" >> ~/.gem/credentials
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
