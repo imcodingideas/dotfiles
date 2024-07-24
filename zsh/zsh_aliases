@@ -6,7 +6,6 @@ alias h="cd ~/"
 alias ll="eza --git --time-style relative -al"
 alias zs="source ~/.zshrc"
 alias restore-from="git restore --source"
-alias cd="z"
 
 # tmux
 alias tm="tmux"
