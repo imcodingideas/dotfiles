@@ -2,14 +2,35 @@ tap "1password/tap"
 tap "codeship/taps"
 tap "homebrew/bundle"
 tap "homebrew/services"
+tap "moncho/dry"
 tap "stripe/stripe-cli"
 tap "universal-ctags/universal-ctags"
+# Library for manipulating PNG images
+brew "libpng"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# Cross-platform make
+brew "cmake"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
+# C++14 implementation of the TLS-1.3 standard
+brew "fizz"
+# QUIC transport protocol implementation
+brew "mvfst"
+# Modular, composable client/server abstractions framework
+brew "wangle"
+# Facebook's branch of Apache Thrift, including a new C++ server
+brew "fbthrift"
+# Thrift functions for querying information from a service
+brew "fb303"
+# Shared library for Watchman and Eden projects
+brew "edencommon"
 # Framework for layout and rendering of i18n text
 brew "pango"
+# Toolkit for creating graphical user interfaces
+brew "gtk+3"
 # Multipurpose sniffer/interceptor/logger for switched LAN
 brew "ettercap"
 # Modern, maintained replacement for ls
@@ -18,6 +39,8 @@ brew "eza"
 brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Geometry Engine
+brew "geos"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
 # Improved top (interactive process viewer)
@@ -26,8 +49,12 @@ brew "htop"
 brew "imagemagick"
 # Install and debug iPhone apps from the command-line
 brew "ios-deploy"
+# Image manipulation library
+brew "jpeg"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# YAML Parser
+brew "libyaml"
 # Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit"
 # Simple tool to make locally trusted development certificates
@@ -60,6 +87,8 @@ brew "wget"
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
+# a Docker manager for the terminal
+brew "moncho/dry/dry"
 # Command-line interface for 1Password
 cask "1password-cli"
 # GPU-accelerated terminal emulator
