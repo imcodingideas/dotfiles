@@ -19,6 +19,7 @@
     ~/.gitconfig: git/gitconfig
     # php
     ~/.composer/composer.json: composer/composer.json
+    ~/.config/tmux/tmux.conf: tmux/tmux.conf
     # vim
     ~/.config/nvim/:
       glob: true

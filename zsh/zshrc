@@ -11,6 +11,12 @@ export PATH=${PATH}:/usr/local/git/bin
 export PATH=${PATH}:~/.ssh/rsa_id
 export PATH=${PATH}:~/.rvm/bin
 export PATH=${PATH}:~/.composer/vendor/bin
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+
+# MySQL environment variables
+export LDFLAGS="-L/opt/homebrew/opt/mysql@8.0/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/mysql@8.0/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql@8.0/lib/pkgconfig"
 
 ZSH_THEME="robbyrussell"
 plugins=(git brew rails node macos nvm z zsh-autosuggestions)
@@ -43,6 +49,10 @@ if [[ -z "GITHUB_PACKAGES_TOKEN" ]]; then
     echo "Error: Failed to retrieve GitHub token from 1Password."
     exit 1
 fi
+
+# ASDF setup
+. $(brew --prefix asdf)/libexec/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # Update ~/.gem/credentials file
 echo "---" > ~/.gem/credentials
