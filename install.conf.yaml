@@ -12,6 +12,7 @@
     ~/.zsh_functions: zsh/zsh_functions
     ~/.zsh_aliases: zsh/zsh_aliases
     ~/.fzf.zsh: zsh/fzf.zsh
+    ~/.1password.zsh: zsh/1password.zsh
     # alacritty
     ~/.config/alacritty/alacritty.toml: alacritty/alacritty.toml
     # git

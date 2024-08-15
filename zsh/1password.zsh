@@ -1,14 +1,13 @@
 # Store 1Password session tokens in a cache
 SESSION_FILE="$HOME/.op_session"
 
-# Function to sign in and save the session token
+# Sign in and save the session token
 op_signin() {
     OP_SESSION=$(op signin --raw)
     echo "$OP_SESSION" > "$SESSION_FILE"
     eval $(echo "$OP_SESSION" | awk '{print "export OP_SESSION_"$1"="$2}')
 }
 
-# Function to source the session token
 source_op_session() {
     if [[ -f "$SESSION_FILE" ]]; then
         OP_SESSION=$(cat "$SESSION_FILE")

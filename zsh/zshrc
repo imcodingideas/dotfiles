@@ -28,6 +28,8 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export LANG=en_US.UTF-8
 
+export OP_ACCOUNT=my.1password.com
+
 # Functions
 [ -f ~/.zsh_functions ] && source ~/.zsh_functions
 
@@ -40,7 +42,7 @@ eval "$(rbenv init -)"
 eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.1password.zsh ] && source ~/.1password.zsh
+# [ -f ~/.1password.zsh ] && source ~/.1password.zsh
 
 # ASDF setup
 . $(brew --prefix asdf)/libexec/asdf.sh
