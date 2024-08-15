@@ -3,16 +3,24 @@ tap "codeship/taps"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "moncho/dry"
+tap "ngrok/ngrok"
 tap "stripe/stripe-cli"
 tap "universal-ctags/universal-ctags"
+tap "wix/brew"
 # Library for manipulating PNG images
 brew "libpng"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# YAML Parser
+brew "libyaml"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
 # Cross-platform make
 brew "cmake"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # C++14 implementation of the TLS-1.3 standard
@@ -53,18 +61,22 @@ brew "ios-deploy"
 brew "jpeg"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# YAML Parser
-brew "libyaml"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
+# Open source relational database management system
+brew "mysql@8.0", link: true
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
 # Libraries for security-enabled client and server applications
 brew "nss"
+# Manage multiple Node.js versions
+brew "nvm"
 # File browser
 brew "ranger"
 # Ruby version manager
@@ -89,16 +101,28 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 # a Docker manager for the terminal
 brew "moncho/dry/dry"
+# Apple simulator utilities
+brew "wix/brew/applesimutils", args: ["HEAD"]
 # Command-line interface for 1Password
 cask "1password-cli"
 # GPU-accelerated terminal emulator
 cask "alacritty"
+# Tools for building Android applications
+cask "android-studio"
+# Collaborative team software
+cask "figma"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 # CI/CD as a service
 cask "jet"
 # Intercept, modify, replay, save HTTP/S traffic
 cask "mitmproxy"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# Standalone app for debugging React Native apps
+cask "react-native-debugger"
+# Desktop app for inspecting React JS and React Native projects
+cask "reactotron"
 # Video chat, voice call and instant messaging application
 cask "skype"
 # JavaScript IDE

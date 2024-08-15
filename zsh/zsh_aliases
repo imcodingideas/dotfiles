@@ -15,3 +15,5 @@ alias tmpl="tmuxp load ." # tmuxp load session
 
 # Run dotfiles installer
 alias dotinstall="~/.dotfiles/install"
+
+alias easy-nvim="NVIM_APPNAME=easy-nvim nvim"
