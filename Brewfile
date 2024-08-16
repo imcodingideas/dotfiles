@@ -4,6 +4,7 @@ tap "homebrew/bundle"
 tap "homebrew/services"
 tap "moncho/dry"
 tap "ngrok/ngrok"
+tap "nikitabobko/tap"
 tap "stripe/stripe-cli"
 tap "universal-ctags/universal-ctags"
 tap "wix/brew"
@@ -105,10 +106,14 @@ brew "moncho/dry/dry"
 brew "wix/brew/applesimutils", args: ["HEAD"]
 # Command-line interface for 1Password
 cask "1password-cli"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "aerospace"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Tools for building Android applications
 cask "android-studio"
+# App to build and share containerised applications and microservices
+cask "docker"
 # Collaborative team software
 cask "figma"
 cask "font-fira-code-nerd-font"

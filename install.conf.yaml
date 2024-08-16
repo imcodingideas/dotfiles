@@ -21,6 +21,7 @@
     # php
     ~/.composer/composer.json: composer/composer.json
     ~/.config/tmux/tmux.conf: tmux/tmux.conf
+    ~/.config/alacritty/alacritty.toml: alacritty/alacritty.toml
     # vim
     ~/.config/nvim/:
       glob: true
