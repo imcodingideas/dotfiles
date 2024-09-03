@@ -5,6 +5,85 @@
 # Find and kill port. i.e. kp 3000
 function kp() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
 
+# Docker
+
+# Usage: docker:start:services redis mysql
+docker:start:services() {
+  services=("$@")
+  docker compose -f docker-compose.yml up -d "${services[@]}"
+}
+
+# Usage: docker:stop:services redis mysql
+docker:stop:services() {
+  services=("$@")
+  docker compose -f docker-compose.yml stop "${services[@]}"
+}
+
+# Usage docker:logs redis
+docker:logs() {
+  service="$1"
+  docker compose -f docker-compose.yml logs "$service"
+}
+
+# docker:exec redis bash
+docker:exec() {
+  service="$1"
+  shift
+  container_id="$(docker ps -q -f name="$service")"
+  if [ -n "$container_id" ]; then
+    docker exec -it "$container_id" "$@"
+  else
+    echo "Service $service not running."
+  fi
+}
+
+docker:prune:all() {
+  docker:stop:all
+  docker:cleanup:containers
+  docker:cleanup:images
+  docker:cleanup:networks
+  docker:cleanup:volumes
+  docker:cleanup:system
+}
+
+docker:stop:all() {
+  docker stop $(docker ps -a -q) || true
+}
+
+docker:cleanup:images() {
+  docker image prune -a -f
+}
+
+docker:cleanup:volumes() {
+  docker volume prune -a -f
+}
+
+docker:cleanup:containers() {
+  docker container prune -f
+}
+
+docker:cleanup:networks() {
+  docker network prune -f
+}
+
+docker:cleanup:system() {
+  docker system prune -a -f
+}
+
+# Tmux utility
+t() {
+  name=$(basename `pwd` | sed -e 's/\.//g')
+  if tmux ls 2>&1 | grep "$name"
+  then
+    tmux attach -t "$name"
+  elif [ -f .envrc ]
+  then
+    direnv exec / tmux new-session -s "$name"
+  else
+    tmux new-session -s "$name"
+  fi
+}
+
 auto-switch-node-version() {
   NVMRC_PATH=$(nvm_find_nvmrc)
   CURRENT_NODE_VERSION=$(nvm version)
