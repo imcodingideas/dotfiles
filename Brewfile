@@ -102,8 +102,6 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 # a Docker manager for the terminal
 brew "moncho/dry/dry"
-# Apple simulator utilities
-brew "wix/brew/applesimutils", args: ["HEAD"]
 # Command-line interface for 1Password
 cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -118,6 +116,7 @@ cask "docker"
 cask "figma"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
+cask "font-meslo-lg-nerd-font"
 # CI/CD as a service
 cask "jet"
 # Intercept, modify, replay, save HTTP/S traffic
@@ -130,6 +129,8 @@ cask "react-native-debugger"
 cask "reactotron"
 # Video chat, voice call and instant messaging application
 cask "skype"
+# Open-source code editor
+cask "visual-studio-code"
 # JavaScript IDE
 cask "webstorm"
 # Native desktop client for WhatsApp
@@ -137,8 +138,6 @@ cask "whatsapp"
 vscode "aki77.rails-db-schema"
 vscode "aliariff.vscode-erb-beautify"
 vscode "bradlc.vscode-tailwindcss"
-vscode "calebporzio.better-keybindings"
-vscode "calebporzio.simple-project-switcher"
 vscode "coachrichbart.better-jest"
 vscode "dbaeumer.vscode-eslint"
 vscode "esbenp.prettier-vscode"
