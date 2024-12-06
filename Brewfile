@@ -141,6 +141,8 @@ brew "guumaster/tap/hostctl"
 brew "moncho/dry/dry"
 # Apple simulator utilities
 brew "wix/brew/applesimutils", args: ["HEAD"]
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
 # Command-line interface for 1Password
 cask "1password-cli"
 # GPU-accelerated terminal emulator
@@ -154,8 +156,12 @@ cask "figma"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
+# For browse or develop RAW images and tethered shooting on Sony cameras
+cask "imaging-edge"
 # CI/CD as a service
 cask "jet"
+# App to manage software development and track bugs
+cask "linear-linear"
 # Intercept, modify, replay, save HTTP/S traffic
 cask "mitmproxy"
 # Reverse proxy, secure introspectable tunnels to localhost
