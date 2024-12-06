@@ -121,8 +121,6 @@ brew "sponge"
 brew "stripe-cli"
 # Code-search similar to ack
 brew "the_silver_searcher"
-# Define your dev environment as code. For microservice apps on Kubernetes
-brew "tilt"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
