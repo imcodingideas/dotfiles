@@ -162,6 +162,8 @@ cask "mitmproxy"
 cask "ngrok"
 # Collaboration platform for API development
 cask "postman"
+# Control your tools with a few keystrokes
+cask "raycast"
 # Standalone app for debugging React Native apps
 cask "react-native-debugger"
 # Desktop app for inspecting React JS and React Native projects
