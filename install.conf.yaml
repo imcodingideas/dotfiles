@@ -21,7 +21,6 @@
     # php
     ~/.composer/composer.json: composer/composer.json
     ~/.config/tmux/tmux.conf: tmux/tmux.conf
-    ~/.config/aerospace/aerospace.toml: aerospace/aerospace.toml
     # vim
     ~/.config/nvim/:
       glob: true
