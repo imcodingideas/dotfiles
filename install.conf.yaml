@@ -13,8 +13,8 @@
     ~/.zsh_aliases: zsh/zsh_aliases
     ~/.fzf.zsh: zsh/fzf.zsh
     ~/.1password.zsh: zsh/1password.zsh
-    # alacritty
-    ~/.config/alacritty/alacritty.toml: alacritty/alacritty.toml
+    # ghostty
+    ~/.config/ghostty/config: ghostty/config
     # git
     ~/.gitignore_global: git/gitignore_global
     ~/.gitconfig: git/gitconfig

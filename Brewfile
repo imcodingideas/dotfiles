@@ -159,8 +159,6 @@ brew "moncho/dry/dry"
 cask "1password"
 # Command-line interface for 1Password
 cask "1password-cli"
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # Tools for building Android applications
 cask "android-studio"
 # Allows connection to a computer remotely
@@ -219,6 +217,8 @@ vscode "coachrichbart.better-jest"
 vscode "dbaeumer.vscode-eslint"
 vscode "docker.docker"
 vscode "esbenp.prettier-vscode"
+vscode "github.copilot"
+vscode "github.copilot-chat"
 vscode "graphql.vscode-graphql"
 vscode "graphql.vscode-graphql-syntax"
 vscode "mrmlnc.vscode-duplicate"
