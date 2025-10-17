@@ -1,61 +1,58 @@
-# Paths
-export PATH=${PATH}:/bin
-export PATH=${PATH}:/usr/bin
-export PATH=${PATH}:~/.local/bin
-export PATH=${PATH}:/usr/local/bin
-export PATH=${PATH}:/usr/local/opt/qt/bin
-export PATH=${PATH}:/sbin
-export PATH=${PATH}:/usr/sbin
-export PATH=${PATH}:/usr/local/sbin
-export PATH=${PATH}:/usr/local/git/bin
-export PATH=${PATH}:~/.ssh/rsa_id
-export PATH=${PATH}:~/.rvm/bin
-export PATH=${PATH}:~/.composer/vendor/bin
-export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+# ==== PATH Management ====
+typeset -U path
 
-# MySQL environment variables
-export LDFLAGS="-L/opt/homebrew/opt/mysql@8.0/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/mysql@8.0/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql@8.0/lib/pkgconfig"
+path=(
+  /usr/local/bin
+  /usr/local/sbin
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
+  /usr/local/git/bin
+)
 
-ZSH_THEME="robbyrussell"
-plugins=(git brew rails node macos nvm z)
+# Add Homebrew
+path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
 
-ZSH=$HOME/.oh-my-zsh
+# Add user-specific bins
+path=(~/.local/bin ~/.composer/vendor/bin $path)
 
-source $ZSH/oh-my-zsh.sh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Add pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+[ -d "$PNPM_HOME" ] && path=($PNPM_HOME $path)
 
+export PATH
+
+# ==== Environment Variables ====
 export LANG=en_US.UTF-8
-
 export OP_ACCOUNT=my.1password.com
 
-# Functions
+# ==== Oh My Zsh Configuration ====
+export ZSH=~/.oh-my-zsh 
+ZSH_THEME="robbyrussell"
+plugins=(git brew node macos nvm z)
+
+source "$ZSH/oh-my-zsh.sh"
+
+# ==== Sources and Completions ====
+[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f ~/.zsh_functions ] && source ~/.zsh_functions
-
-# Aliases
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
-
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-eval "$(rbenv init -)"
-eval "$(zoxide init zsh)"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# [ -f ~/.1password.zsh ] && source ~/.1password.zsh
-
-# ASDF setup
-. $(brew --prefix asdf)/libexec/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
-
-# Update ~/.gem/credentials file
-echo "---" > ~/.gem/credentials
-echo ":github: $GITHUB_PACKAGES_TOKEN" >> ~/.gem/credentials
-
-source $(brew --prefix nvm)/nvm.sh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f ~/.1password.zsh ] && source ~/.1password.zsh
 
 # Homebrew autocomplete
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+  autoload -Uz compinit && compinit
 fi
+
+if which rbenv > /dev/null; then
+  eval "$(rbenv init - zsh)"
+fi
+
+eval "$(zoxide init zsh)"
+
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && source "$(brew --prefix nvm)/nvm.sh"
+
+eval "$(direnv hook zsh)"
