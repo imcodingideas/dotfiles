@@ -25,6 +25,7 @@
     ~/.config/nvim/:
       glob: true
       path: vim/*
+    ~/Pictures/wallpaper.png: wallpaper/wallpaper.png
 
 - create:
     - ~/Code
@@ -34,3 +35,5 @@
 - shell:
     - description: Hushing login
       command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
+    - description: Setting wallpaper
+      command: osascript -e 'tell application "System Events" to tell every desktop to set picture to "~/Pictures/wallpaper.jpg" as POSIX file'

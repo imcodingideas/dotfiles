@@ -102,6 +102,9 @@ transcode-video-4K() {
   ffmpeg -i $1 -c:v libx265 -preset slow -crf 24 -c:a aac -b:a 192k ${1%.*}-optimized.mp4
 }
 
+set-wallpaper() {
+  osascript -e 'tell application "System Events" to tell every desktop to set picture to "~/Pictures/wallpaper.png" as POSIX file'
+}
 
 auto-switch-node-version() {
   NVMRC_PATH=$(nvm_find_nvmrc)
