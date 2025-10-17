@@ -1,54 +1,68 @@
 # dotfiles
-My shell is my castle and here are my dotfiles
+My shell configuration and development environment setup.
 
-Please refrain from forking or cloning this repository. It's designed for personal use and inspiration, rather than full replication. If you notice anything unusual or incorrect, please open an issue instead.
+This repository is personal and highly customized for my workflow. Feel free to browse for inspiration, but I don't recommend forking or cloning directly. If you spot issues or have questions, please open an issue.
 
-NOTE: I might be going a bit overboard with this, but it’s my house, and I’m all for a bit of overengineering if I feel like it! 😅
+> **Note:** Yes, this might be overengineered. But it's my house, and I'm all for a bit of overengineering when I feel like it! 😅
 
-## Steps to bootstrap a new Mac
+## Fresh macOS Setup
 
-1. Install Apple's Command Line Tools, which are prerequisites for Git and Homebrew.
-
+### 1. Install Command Line Tools
 ```zsh
 xcode-select --install
 ```
 
-2. Clone repo into new hidden directory.
-
+### 2. Clone this repository
 ```zsh
-# Use SSH (if set up)...
+# SSH (recommended if already configured)
 git clone git@github.com:imcodingideas/dotfiles.git ~/.dotfiles
-
-# ...or use HTTPS and switch remotes later.
-git clone https://github.com/imcodingideas/dotfiles.git ~/.dotfiles
 ```
 
-3. Create symlinks in the Home directory to the real files in the repo.
-
+### 3. Create symlinks
 ```zsh
+cd ~/.dotfiles
 ./install
 ```
 
-4. Install Homebrew, followed by the software listed in the Brewfile.
-
+### 4. Install Homebrew
 ```zsh
-# These could also be in an install script.
-
-# Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Then pass in the Brewfile location...
-brew bundle --file ~/.dotfiles/Brewfile
-
-# ...or move to the directory first.
-cd ~/.dotfiles && brew bundle
 ```
 
-5. To maintain a healthy Brewfile
+### 5. Install applications and tools
 ```zsh
-# The describe flag adds comments above the brew name
-brew bundle dump --describe --force
+cd ~/.dotfiles
+brew bundle
+```
 
-# Update the lock file and install
+## Maintenance
+
+### Update Brewfile
+
+Generate a fresh Brewfile from currently installed packages:
+```zsh
+brew bundle dump --describe --force
+```
+
+### Install/update from Brewfile
+```zsh
 brew bundle --file=Brewfile
 ```
+
+### Clean up unused dependencies
+```zsh
+brew bundle cleanup --force
+```
+
+## What's Inside
+
+- **Zsh configuration** - Custom aliases, functions, and prompt
+- **Development tools** - Node, Python, and more via Homebrew
+- **Applications** - Curated list of productivity and development apps
+- **1Password integration** - Secure token management for CLI tools
+
+## Requirements
+
+- macOS (tested on latest version)
+- Xcode Command Line Tools
+- 1Password app (for CLI integration)
