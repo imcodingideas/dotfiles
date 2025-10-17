@@ -5,6 +5,12 @@
 # Find and kill port. i.e. kp 3000
 function kp() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
 
+# Usage: 
+#   compress folder_name    - creates folder_name.tar.gz
+#   decompress file.tar.gz  - extracts the archive
+compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
+alias decompress="tar -xzf"
+
 # Docker
 
 # Usage: docker:start:services redis mysql
@@ -19,13 +25,13 @@ docker:stop:services() {
   docker compose -f docker-compose.yml stop "${services[@]}"
 }
 
-# Usage docker:logs redis
+# Usage: docker:logs redis
 docker:logs() {
   service="$1"
   docker compose -f docker-compose.yml logs "$service"
 }
 
-# docker:exec redis bash
+# Usage: docker:exec redis bash
 docker:exec() {
   service="$1"
   shift
