@@ -4,29 +4,41 @@ tap "guumaster/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "moncho/dry"
+tap "mongodb/brew"
 tap "ngrok/ngrok"
 tap "nikitabobko/tap"
 tap "stripe/stripe-cli"
-tap "universal-ctags/universal-ctags"
 tap "wix/brew"
+# Run your GitHub Actions locally
+brew "act"
 # Library for manipulating PNG images
 brew "libpng"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # Framework for layout and rendering of i18n text
 brew "pango"
 # Library to render SVG files using Cairo
 brew "librsvg"
 # Icons for the GNOME project
 brew "adwaita-icon-theme"
-# Tool for generating GNU Standards-compliant Makefiles
-brew "automake"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # YAML Parser
 brew "libyaml"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Checks ansible playbooks for practices and behaviour
+brew "ansible-lint"
+# ARP scanning and fingerprinting tool
+brew "arp-scan"
+# Distributed revision control system
+brew "git"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
 # Protocol definitions and daemon for D-Bus at-spi
 brew "at-spi2-core"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Cross-platform make
@@ -35,6 +47,8 @@ brew "cmake"
 brew "cocoapods"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Collection of reusable C++ library artifacts developed at Facebook
 brew "folly"
 # C++14 implementation of the TLS-1.3 standard
@@ -61,10 +75,12 @@ brew "ffmpeg"
 brew "fzf"
 # Geometry Engine
 brew "geos"
-# Distributed revision control system
-brew "git"
+# GitHub command-line tool
+brew "gh"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
+# Task is a task runner/build tool that aims to be simpler and easier to use
+brew "go-task"
 # Toolkit for creating graphical user interfaces
 brew "gtk4"
 # Kubernetes package manager
@@ -91,8 +107,6 @@ brew "luajit"
 brew "mkcert"
 # QUIC transport protocol implementation
 brew "mvfst"
-# Open source relational database management system
-brew "mysql@8.0", link: true
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Port scanning utility for large networks
@@ -111,6 +125,8 @@ brew "ranger"
 brew "rbenv"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# CLI for managing and maintaining data graphs with Apollo Studio
+brew "rover"
 # Utility that provides fast incremental file transfer
 brew "rsync"
 # Rust toolchain installer
@@ -123,14 +139,14 @@ brew "stripe-cli"
 brew "the_silver_searcher"
 # Terminal multiplexer
 brew "tmux"
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
 # Watch files and take action when they change
 brew "watchman"
 # Internet file retriever
 brew "wget"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
@@ -139,8 +155,6 @@ brew "zsh-autosuggestions"
 brew "guumaster/tap/hostctl"
 # a Docker manager for the terminal
 brew "moncho/dry/dry"
-# Apple simulator utilities
-brew "wix/brew/applesimutils", args: ["HEAD"]
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -149,23 +163,33 @@ cask "1password-cli"
 cask "alacritty"
 # Tools for building Android applications
 cask "android-studio"
+# Allows connection to a computer remotely
+cask "anydesk"
+# CI/CD as a service
+cask "codeship-jet"
 # App to build and share containerised applications and microservices
-cask "docker"
+cask "docker-desktop"
+# Update and configure Elgato Capture devices
+cask "elgato-capture-device-utility"
 # Collaborative team software
 cask "figma"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # For browse or develop RAW images and tethered shooting on Sony cameras
 cask "imaging-edge"
-# CI/CD as a service
-cask "jet"
+# Keyboard customiser
+cask "karabiner-elements"
 # App to manage software development and track bugs
 cask "linear-linear"
 # Intercept, modify, replay, save HTTP/S traffic
 cask "mitmproxy"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# VPN client for secure internet access and private browsing
+cask "nordvpn"
 # Collaboration platform for API development
 cask "postman"
 # Control your tools with a few keystrokes
@@ -176,6 +200,8 @@ cask "react-native-debugger"
 cask "reactotron"
 # Video chat, voice call and instant messaging application
 cask "skype"
+# Team communication and collaboration software
+cask "slack"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
 # Open-source code editor
@@ -184,35 +210,23 @@ cask "visual-studio-code"
 cask "webstorm"
 # Native desktop client for WhatsApp
 cask "whatsapp"
-vscode "aki77.rails-db-schema"
-vscode "aliariff.vscode-erb-beautify"
+# Connect to Windows
+cask "windows-app"
+# Video communication and virtual meeting platform
+cask "zoom"
 vscode "bradlc.vscode-tailwindcss"
 vscode "coachrichbart.better-jest"
 vscode "dbaeumer.vscode-eslint"
+vscode "docker.docker"
 vscode "esbenp.prettier-vscode"
-vscode "github.vscode-github-actions"
 vscode "graphql.vscode-graphql"
 vscode "graphql.vscode-graphql-syntax"
-vscode "huff-language.huff-language"
-vscode "juanblanco.solidity"
-vscode "junstyle.php-cs-fixer"
-vscode "kaiwood.endwise"
-vscode "karunamurti.haml"
-vscode "koichisasada.vscode-rdbg"
-vscode "misogi.ruby-rubocop"
 vscode "mrmlnc.vscode-duplicate"
+vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode.makefile-tools"
-vscode "ms-vscode.remote-explorer"
 vscode "naumovs.color-highlight"
 vscode "nur.just-black"
 vscode "rebornix.toggle"
 vscode "ritwickdey.liveserver"
-vscode "sanity-io.vscode-sanity"
-vscode "shopify.ruby-extensions-pack"
-vscode "shopify.ruby-lsp"
-vscode "sorbet.sorbet-vscode-extension"
 vscode "whizkydee.material-palenight-theme"
