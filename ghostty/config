@@ -1,5 +1,7 @@
 # https://ghostty.org/docs/config/reference
 
+theme = Nord
+
 # Window
 window-padding-x = 14
 window-padding-y = 14
