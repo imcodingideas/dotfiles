@@ -212,6 +212,7 @@ cask "whatsapp"
 cask "windows-app"
 # Video communication and virtual meeting platform
 cask "zoom"
+vscode "arcticicestudio.nord-visual-studio-code"
 vscode "bradlc.vscode-tailwindcss"
 vscode "coachrichbart.better-jest"
 vscode "dbaeumer.vscode-eslint"
