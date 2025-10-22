@@ -35,9 +35,18 @@
 - shell:
     - description: Hushing login
       command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
+      
     - description: Setting Screenshots location
       command: defaults write com.apple.screencapture location ~/Documents/Screenshots
+
     - description: Setting wallpaper
       command: osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"$HOME/.dotfiles/wallpaper/wallpaper.png\" as POSIX file" 2>&1
+
     - description: Disabling Stage Manager
       command: defaults write com.apple.WindowManager GloballyEnabled -bool false && defaults write com.apple.WindowManager AppWindowGroupingBehavior -bool false
+
+    - description: Disable animations when opening applications
+      command: defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+    
+    - description: Disable animations when opening Quick Look windows
+      command: defaults write -g QLPanelAnimationDuration -float 0
