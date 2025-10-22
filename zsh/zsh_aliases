@@ -29,7 +29,8 @@ alias tmpl="tmuxp load ." # tmuxp load session
 alias d='docker'
 
 # Homebrew maintenance
-alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all'
+alias brewdump='brew bundle dump --describe --force'
+alias brewup='brew update && brew bundle && brew bundle cleanup --force && brew autoremove && brew cleanup --prune=all'
 alias brewcheck='brew doctor && brew missing'
 
 # Run dotfiles installer
