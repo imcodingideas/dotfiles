@@ -41,6 +41,8 @@ brew "at-spi2-core"
 brew "automake"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Cross-platform make
 brew "cmake"
 # Dependency manager for Cocoa projects
@@ -227,6 +229,7 @@ vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-vscode-remote.remote-containers"
 vscode "naumovs.color-highlight"
+vscode "nrwl.angular-console"
 vscode "nur.just-black"
 vscode "rebornix.toggle"
 vscode "ritwickdey.liveserver"
