@@ -27,6 +27,7 @@ alias tmpl="tmuxp load ." # tmuxp load session
 
 # Tools
 alias d='docker'
+n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
 
 # Homebrew maintenance
 alias brewdump='brew bundle dump --describe --force'
