@@ -165,6 +165,8 @@ cask "1password-cli"
 cask "android-studio"
 # Allows connection to a computer remotely
 cask "anydesk"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # CI/CD as a service
 cask "codeship-jet"
 # App to build and share containerised applications and microservices
