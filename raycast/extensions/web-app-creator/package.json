@@ -2,21 +2,42 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "web-app-creator",
   "title": "Web App Creator",
-  "description": "Create standalone web applications from any URL with automatic icon fetching",
-  "icon": "command-icon.png",
+  "description": "Instantly turn any website into a beautiful native macOS app with dedicated Chrome profile, real .icns icon, blocked notifications, and zero first-run prompts.",
+  "icon": "icon.png",
   "author": "imcodingideas",
+  "owner": "imcodingideas",
   "categories": [
     "Productivity",
-    "Developer Tools"
+    "Developer Tools",
+    "Web"
+  ],
+  "keywords": [
+    "web app",
+    "pwa",
+    "chrome",
+    "native app",
+    "macos app",
+    "wrapper",
+    "site-specific browser",
+    "ssb",
+    "fluid",
+    "nativefier"
   ],
   "license": "MIT",
+  "access": "public",
   "commands": [
     {
       "name": "create-web-app",
       "title": "Create Web App",
       "subtitle": "Web App Creator",
-      "description": "Create a standalone macOS application from any website URL",
-      "mode": "view"
+      "description": "Create a standalone macOS app from any website with dedicated profile and real icon",
+      "mode": "view",
+      "keywords": [
+        "make app",
+        "website to app",
+        "pwa",
+        "wrapper"
+      ]
     }
   ],
   "preferences": [
@@ -25,7 +46,7 @@
       "type": "textfield",
       "required": false,
       "title": "Chrome Executable Path",
-      "description": "Path to Google Chrome (default: /Applications/Google Chrome.app)",
+      "description": "Full path to Google Chrome executable",
       "default": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
       "placeholder": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     },
@@ -34,15 +55,15 @@
       "type": "dropdown",
       "required": false,
       "title": "Install Location",
-      "description": "Where to install web apps",
+      "description": "Where to save created apps",
       "default": "user",
       "data": [
         {
-          "title": "~/Applications/WebApps",
+          "title": "User Apps (~/Applications/WebApps)",
           "value": "user"
         },
         {
-          "title": "/Applications",
+          "title": "System Apps (/Applications)",
           "value": "system"
         }
       ]
@@ -64,8 +85,8 @@
   "scripts": {
     "build": "ray build -e dist",
     "dev": "ray develop",
-    "fix-lint": "ray lint --fix",
     "lint": "ray lint",
+    "fix-lint": "ray lint --fix",
     "publish": "npx @raycast/api@latest publish"
   }
 }
