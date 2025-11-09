@@ -251,7 +251,7 @@ ${iconEntry}    <key>LSUIElement</key>
     }
 
     // Give macOS a moment to register the app
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise(resolve => setTimeout(resolve, 500));
 
     await open(appBundle);
     await popToRoot();
