@@ -1,32 +1,3 @@
-# ==== PATH Management ====
-typeset -U path
-
-path=(
-  /usr/local/bin
-  /usr/local/sbin
-  /usr/bin
-  /bin
-  /usr/sbin
-  /sbin
-  /usr/local/git/bin
-)
-
-# Add Homebrew
-path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
-
-# Add user-specific bins
-path=(~/.local/bin ~/.composer/vendor/bin $path)
-
-# Add pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-[ -d "$PNPM_HOME" ] && path=($PNPM_HOME $path)
-
-export PATH
-
-# ==== Environment Variables ====
-export LANG=en_US.UTF-8
-export OP_ACCOUNT=my.1password.com
-
 # ==== Oh My Zsh Configuration ====
 export ZSH=~/.oh-my-zsh 
 ZSH_THEME="robbyrussell"
@@ -34,10 +5,37 @@ plugins=(git brew node macos nvm z)
 
 source "$ZSH/oh-my-zsh.sh"
 
+# ==== PATH Management ====
+typeset -U path
+
+path=(
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+  /opt/homebrew/opt/mysql@8.0/bin
+  ~/.local/bin
+  ~/.composer/vendor/bin
+  /usr/local/bin
+  /usr/local/sbin
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
+  /usr/local/git/bin
+  $path
+)
+
+# Add pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+[ -d "$PNPM_HOME" ] && path=($PNPM_HOME $path)
+
+# ==== Environment Variables ====
+export LANG=en_US.UTF-8
+export OP_ACCOUNT=my.1password.com
+
 # ==== Sources and Completions ====
 [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-[ -f ~/.zsh_functions ] && source ~/.zsh_functions
-[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+[ -f ~/.functions.zsh ] && source ~/.functions.zsh
+[ -f ~/.aliases.zsh ] && source ~/.aliases.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.1password.zsh ] && source ~/.1password.zsh
 
@@ -47,12 +45,16 @@ if type brew &>/dev/null; then
   autoload -Uz compinit && compinit
 fi
 
+# rbenv
 if which rbenv > /dev/null; then
   eval "$(rbenv init - zsh)"
 fi
 
+# zoxide
 eval "$(zoxide init zsh)"
 
+# nvm
 [ -s "$(brew --prefix nvm)/nvm.sh" ] && source "$(brew --prefix nvm)/nvm.sh"
 
+# direnv
 eval "$(direnv hook zsh)"

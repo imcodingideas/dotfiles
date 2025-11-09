@@ -9,8 +9,8 @@
 - link:
     # zsh
     ~/.zshrc: zsh/zshrc
-    ~/.functions: zsh/functions.zsh
-    ~/.aliases: zsh/aliases.zsh
+    ~/.functions.zsh: zsh/functions.zsh
+    ~/.aliases.zsh: zsh/aliases.zsh
     ~/.fzf.zsh: zsh/fzf.zsh
     ~/.1password.zsh: zsh/1password.zsh
     # ghostty
