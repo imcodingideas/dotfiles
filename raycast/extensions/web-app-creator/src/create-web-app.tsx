@@ -16,6 +16,7 @@ import {
     showToast,
     Toast,
     getPreferenceValues,
+    environment,
 } from "@raycast/api";
 
 interface Preferences {
@@ -176,28 +177,20 @@ async function createWebApp(values: FormValues) {
 
     toast.message = "Creating launcher...";
 
-    // Create launcher script
-    const launcherScript = path.join(macosDir, appName);
-    const chromeOptsStr = chromeFlags ? ` ${chromeFlags}` : "";
+    // Read launcher template and replace placeholders
+    const templatePath = path.join(environment.assetsPath, "launcher-template.sh");
+    let launcherContent = fs.readFileSync(templatePath, "utf-8");
+    
     const chromePath = preferences.chromeExecutable || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+    const chromeOptsStr = chromeFlags ? ` ${chromeFlags}` : "";
+    
+    launcherContent = launcherContent
+      .replace(/__APP_NAME__/g, appName)
+      .replace(/__CHROME_PATH__/g, chromePath)
+      .replace(/__APP_URL__/g, url)
+      .replace(/__CHROME_FLAGS__/g, chromeOptsStr);
 
-    const launcherContent = `#!/bin/bash
-
-# Kill any existing instances for this app
-pkill -f "user-data-dir.*WebApps/${appName}" 2>/dev/null || true
-
-# Wait a moment for the process to die
-sleep 0.5
-
-# Launch Chrome in app mode
-exec "${chromePath}" \\
-    --new-window \\
-    --app="${url}" \\
-    --class="${appName}" \\
-    --user-data-dir="$HOME/Library/Application Support/Google/Chrome/WebApps/${appName}"${chromeOptsStr} \\
-    "$@" 2>/dev/null
-`;
-
+    const launcherScript = path.join(macosDir, appName);
     fs.writeFileSync(launcherScript, launcherContent);
     fs.chmodSync(launcherScript, "755");
 
