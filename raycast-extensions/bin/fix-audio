@@ -1,0 +1,67 @@
+#!/opt/homebrew/opt/nvm/versions/node/v22.20.0/bin/node
+
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title Fix Audio
+// @raycast.mode compact
+// Optional parameters:
+// @raycast.icon 🎙️
+
+const { execSync } = require('child_process');
+
+// first == highest
+const inputPriorities = [
+  'Elgato Wave XLR',
+  'CalDigit TS4 Audio - Rear',
+  'Cam Link 4K',
+  'Wave Link MicrophoneFX',
+  'Josephs iPhone Microphone',
+];
+
+// first == highest
+const outputPriorities = [
+  'Wave Link Stream',
+  'CalDigit TS4 Audio - Rear',
+  'Mac Studio Speakers',
+  'Elgato Wave XLR',
+  'LG HDR WQHD',
+  'LG HDR QHD',
+  'LoomAudioDevice',
+];
+
+// brew install switchaudio-osx
+const devicesOutput = execSync('SwitchAudioSource -a -f json', { encoding: 'utf-8' });
+const devices = devicesOutput
+  .trim()
+  .split('\n')
+  .map(line => JSON.parse(line));
+
+function highestPriorityDevice(devices, priorities) {
+  const sorted = [...devices].sort((a, b) => {
+    const aIndex = priorities.indexOf(a.name);
+    const bIndex = priorities.indexOf(b.name);
+    const aPriority = aIndex === -1 ? priorities.length + 1 : aIndex;
+    const bPriority = bIndex === -1 ? priorities.length + 1 : bIndex;
+    return aPriority - bPriority;
+  });
+  return sorted[0];
+}
+
+function switchOutput(device) {
+  execSync(`SwitchAudioSource -s "${device}" -t output`);
+}
+
+function switchInput(device) {
+  execSync(`SwitchAudioSource -s "${device}" -t input`);
+}
+
+const inputs = devices.filter(d => d.type === 'input');
+const outputs = devices.filter(d => d.type === 'output');
+
+const input = highestPriorityDevice(inputs, inputPriorities);
+switchInput(input.name);
+
+const output = highestPriorityDevice(outputs, outputPriorities);
+switchOutput(output.name);
+
+console.log(`Now: ${input.name} // ${output.name}`);

@@ -137,6 +137,8 @@ brew "rustup"
 brew "sponge"
 # Command-line tool for Stripe
 brew "stripe-cli"
+# Change macOS audio source from the command-line
+brew "switchaudio-osx"
 # Code-search similar to ack
 brew "the_silver_searcher"
 # Terminal multiplexer

@@ -25,6 +25,7 @@
     ~/.config/nvim/:
       glob: true
       path: vim/*
+    ~/.local/bin/fix-audio: raycast-extensions/bin/fix-audio
 
 - create:
     - ~/Code
