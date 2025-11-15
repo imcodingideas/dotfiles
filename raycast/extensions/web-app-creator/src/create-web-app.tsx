@@ -6,7 +6,6 @@ import os from "os";
 import path from "path";
 
 import { useEffect, useState } from "react";
-
 import {
   Action,
   ActionPanel,
@@ -20,6 +19,8 @@ import {
   showToast,
   Toast,
 } from "@raycast/api";
+
+const assetsPath = environment.assetsPath;
 
 interface Preferences {
   chromeExecutable: string;
@@ -35,7 +36,7 @@ interface FormValues {
 async function downloadFile(url: string, dest: string): Promise<void> {
   return new Promise((resolve, reject) => {
     const client = url.startsWith("https") ? https : http;
-    const req = client.get(url, { headers: { "User-Agent": "Raycast-WebApp-Creator/1.0" } }, (res) => {
+    const req = client.get(url, { headers: { "User-Agent": "Raycast" } }, (res) => {
       if (res.statusCode && [301, 302, 303, 307, 308].includes(res.statusCode) && res.headers.location) {
         return downloadFile(res.headers.location, dest).then(resolve).catch(reject);
       }
@@ -44,34 +45,11 @@ async function downloadFile(url: string, dest: string): Promise<void> {
       const file = fs.createWriteStream(dest);
       res.pipe(file);
       file.on("finish", () => file.close(resolve));
-      file.on("error", (err) => {
-        fs.unlink(dest, () => {});
-        reject(err);
-      });
+      file.on("error", (err) => { fs.unlink(dest, () => {}); reject(err); });
     });
-
-    req.on("error", (err) => {
-      fs.unlink(dest, () => {});
-      reject(err);
-    });
-    req.setTimeout(15000, () => {
-      req.destroy();
-      reject(new Error("Timeout"));
-    });
+    req.on("error", reject);
+    req.setTimeout(10000, () => req.destroy() || reject(new Error("Timeout")));
   });
-}
-
-async function convertToIcns(src: string, dest: string): Promise<void> {
-  const iconset = dest.replace(".icns", ".iconset");
-  fs.mkdirSync(iconset, { recursive: true });
-
-  const sizes = [16, 32, 64, 128, 256, 512, 1024];
-  for (const s of sizes) {
-    execSync(`sips -z ${s} ${s} "${src}" --out "${iconset}/icon_${s}x${s}.png"`, { stdio: "ignore" });
-    fs.copyFileSync(`${iconset}/icon_${s}x${s}.png`, `${iconset}/icon_${s}x${s}@2x.png`);
-  }
-  execSync(`iconutil -c icns "${iconset}" -o "${dest}"`);
-  fs.rmSync(iconset, { recursive: true, force: true });
 }
 
 async function fetchBestIcon(url: string): Promise<string | null> {
@@ -81,53 +59,52 @@ async function fetchBestIcon(url: string): Promise<string | null> {
     `${origin}/apple-touch-icon-precomposed.png`,
     `${origin}/favicon.ico`,
     `${origin}/favicon.png`,
-    `${origin}/safari-pinned-tab.svg`,
   ];
 
   for (const u of candidates) {
-    const tmp = path.join(os.tmpdir(), `webapp-icon-${Date.now()}-${Math.random().toString(36).slice(2)}`);
+    const tmp = path.join(os.tmpdir(), `icon-${Date.now()}-${Math.random().toString(36)}`);
     try {
       await downloadFile(u, tmp);
-      if (fs.statSync(tmp).size > 800) return tmp;
+      if (fs.statSync(tmp).size > 500) {
+        if (u.endsWith(".ico")) {
+          const png = tmp + ".png";
+          try {
+            execSync(`sips -s format png "${tmp}" --out "${png}"`, { stdio: "ignore" });
+            fs.unlinkSync(tmp);
+            return png;
+          } catch {}
+        }
+        return tmp;
+      }
       fs.unlinkSync(tmp);
     } catch {}
   }
-
-  // HTML fallback
-  return new Promise((resolve) => {
-    const client = url.startsWith("https") ? https : http;
-    client.get(url, { headers: { "User-Agent": "Raycast" } }).on("response", (res) => {
-      let html = "";
-      res.on("data", (c) => (html += c));
-      res.on("end", () => {
-        const match = html.match(/rel=["'](apple-touch-icon|shortcut icon|icon)["'][^>]+href=["']([^"']+)["']/i);
-        const iconUrl = match?.[2] ? new URL(match[2], url).href : `${origin}/favicon.ico`;
-        const tmp = path.join(os.tmpdir(), `fallback-${Date.now()}`);
-        downloadFile(iconUrl, tmp).then(() => resolve(tmp)).catch(() => resolve(null));
-      });
-    }).on("error", () => resolve(null));
-  });
+  return null;
 }
 
 async function createWebApp(values: FormValues) {
-  const toast = await showToast({ style: Toast.Style.Animated, title: "Creating web app..." });
+  const toast = await showToast({ style: Toast.Style.Animated, title: "Creating app..." });
 
   try {
-    const { appName, url: rawUrl, chromeFlags } = values;
+    let { appName, url: rawUrl, chromeFlags } = values;
     const prefs = getPreferenceValues<Preferences>();
 
+    appName = appName.trim() || "Web App";
+    const safeAppName = appName.replace(/[^a-zA-Z0-9 -]/g, "").trim();
+    if (!safeAppName) throw new Error("Invalid app name");
+
     const url = rawUrl.trim().replace(/\/+$/, "");
-    if (!/^https?:\/\//i.test(url)) throw new Error("Invalid URL – must start with http:// or https://");
+    if (!/^https?:\/\//i.test(url)) throw new Error("Invalid URL");
 
     const chromePath = prefs.chromeExecutable || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-    if (!fs.existsSync(chromePath)) throw new Error("Google Chrome not found at:\n" + chromePath);
+    if (!fs.existsSync(chromePath)) throw new Error("Chrome not found");
 
     const appsDir = prefs.installLocation === "system"
       ? "/Applications"
       : path.join(os.homedir(), "Applications", "WebApps");
     fs.mkdirSync(appsDir, { recursive: true });
 
-    const appBundle = path.join(appsDir, `${appName}.app`);
+    const appBundle = path.join(appsDir, `${safeAppName}.app`);
     if (fs.existsSync(appBundle)) fs.rmSync(appBundle, { recursive: true, force: true });
 
     const contents = path.join(appBundle, "Contents");
@@ -136,50 +113,48 @@ async function createWebApp(values: FormValues) {
     fs.mkdirSync(macos, { recursive: true });
     fs.mkdirSync(resources, { recursive: true });
 
-    // === Icon ===
-    toast.message = "Fetching icon...";
-    let iconFileName = "icon.icns";
+    toast.message = "Getting icon...";
+    let iconFileName = "icon.png";
     const iconPath = path.join(resources, iconFileName);
 
-    try {
-      const tmpIcon = await fetchBestIcon(url);
-      if (tmpIcon && fs.statSync(tmpIcon).size > 1000) {
-        await convertToIcns(tmpIcon, iconPath);
-        fs.unlinkSync(tmpIcon);
-      } else {
-        throw new Error("Invalid");
-      }
-    } catch {
-      const fallback = path.join(environment.assetsPath, "fallback-icon.png");
+    const tmpIcon = await fetchBestIcon(url);
+    if (tmpIcon && fs.statSync(tmpIcon).size > 500) {
+      fs.copyFileSync(tmpIcon, iconPath);
+      fs.unlinkSync(tmpIcon);
+      toast.message = "Icon ready";
+    } else {
+      if (tmpIcon) fs.unlinkSync(tmpIcon);
+      const fallback = path.join(assetsPath, "fallback-icon.png");
       if (fs.existsSync(fallback)) {
-        await convertToIcns(fallback, iconPath);
+        fs.copyFileSync(fallback, iconPath);
+        toast.message = "Using fallback icon";
       } else {
         iconFileName = "";
+        toast.message = "No icon";
       }
-      toast.message = "Using fallback icon";
     }
 
-    // === Launcher Script ===
+    // === Launcher ===
     toast.message = "Creating launcher...";
-    const templatePath = path.join(environment.assetsPath, "launcher-template.sh");
-    if (!fs.existsSync(templatePath)) throw new Error("Missing assets/launcher-template.sh");
+    const templatePath = path.join(assetsPath, "launcher-template.sh");
+    if (!fs.existsSync(templatePath)) throw new Error("Missing launcher-template.sh");
 
-    const userDataDir = path.join(os.homedir(), "Library/Application Support/Google/Chrome/WebApps", appName);
+    const userDataDir = path.join(os.homedir(), "Library/Application Support/Google/Chrome/WebApps", safeAppName);
 
     let script = fs.readFileSync(templatePath, "utf-8");
     script = script
-      .replace(/__APP_NAME__/g, appName)
+      .replace(/__APP_NAME__/g, safeAppName)
       .replace(/__CHROME_PATH__/g, chromePath)
       .replace(/__APP_URL__/g, url)
       .replace(/__USER_DATA_DIR__/g, userDataDir)
       .replace(/__CHROME_FLAGS__/g, chromeFlags.trim() ? ` ${chromeFlags.trim()}` : "");
 
-    const launcherPath = path.join(macos, appName);
+    const launcherPath = path.join(macos, safeAppName);
     fs.writeFileSync(launcherPath, script);
     fs.chmodSync(launcherPath, 0o755);
 
     // === Info.plist ===
-    const bundleId = `com.josephchambers.webapp.${appName.toLowerCase().replace(/[^a-z0-9]/g, "")}`;
+    const bundleId = `com.imcodingideas.webapp.${safeAppName.toLowerCase().replace(/[^a-z0-9]/g, "")}`;
     const iconEntry = iconFileName ? `    <key>CFBundleIconFile</key>\n    <string>${iconFileName}</string>\n` : "";
 
     const plist = `<?xml version="1.0" encoding="UTF-8"?>
@@ -187,7 +162,7 @@ async function createWebApp(values: FormValues) {
 <plist version="1.0">
 <dict>
     <key>CFBundleExecutable</key>
-    <string>${appName}</string>
+    <string>${safeAppName}</string>
     <key>CFBundleIdentifier</key>
     <string>${bundleId}</string>
     <key>CFBundleName</key>
@@ -209,25 +184,35 @@ ${iconEntry}</dict>
 
     fs.writeFileSync(path.join(contents, "Info.plist"), plist);
 
-    // === Finalize ===
-    execSync(`touch "${appBundle}"`);
-    execSync(`/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f "${appBundle}"`, { stdio: "ignore" });
-    execSync(`killall Dock`, { stdio: "ignore" });
+    try {
+      execSync(`touch "${appBundle}"`);
+      execSync(`/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -f "${appBundle}"`, { stdio: "ignore" });
 
-    await new Promise((r) => setTimeout(r, 1000));
+      const iconFile = path.join(resources, "icon.png");
+      if (fs.existsSync(iconFile)) {
+        execSync(`touch "${iconFile}"`);
+        execSync(`xattr -cr "${appBundle}"`);
+      }
+
+      execSync(`killall Dock`, { stdio: "ignore" });
+      execSync(`killall Finder`, { stdio: "ignore" });
+    } catch {}
+
+    await new Promise(r => setTimeout(r, 1200));
 
     toast.style = Toast.Style.Success;
-    toast.title = `${appName} created!`;
-    toast.message = "Opening now...";
+    toast.title = `${appName} ready!`;
+    toast.message = "Opening...";
 
     await closeMainWindow();
     await open(appBundle);
     await popToRoot();
-  } catch (err) {
+
+  } catch (err: any) {
     await showToast({
       style: Toast.Style.Failure,
-      title: "Failed to create app",
-      message: err instanceof Error ? err.message : "Unknown error",
+      title: "Failed",
+      message: err?.message || "Unknown error",
     });
   }
 }
@@ -250,38 +235,15 @@ export default function Command() {
     <Form
       actions={
         <ActionPanel>
-          <Action.SubmitForm
-            title="Create Web App"
-            icon={Icon.PlusCircleFilled}
-            onSubmit={createWebApp}
-          />
+          <Action.SubmitForm title="Create Web App" icon={Icon.PlusCircleFilled} onSubmit={createWebApp} />
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="url"
-        title="Website URL"
-        placeholder="https://music.youtube.com"
-        value={url}
-        onChange={setUrl}
-        autoFocus
-      />
-      <Form.TextField
-        id="appName"
-        title="App Name"
-        placeholder="Youtube Music"
-        value={appName}
-        onChange={setAppName}
-        info="Appears in Dock, Launchpad, and Mission Control"
-      />
-      <Form.TextField
-        id="chromeFlags"
-        title="Extra Chrome Flags (Optional)"
-        placeholder="--start-maximized --force-dark-mode"
-        info="Space-separated flags. Use carefully."
-      />
+      <Form.TextField id="url" title="Website URL" placeholder="https://music.youtube.com" value={url} onChange={setUrl} autoFocus />
+      <Form.TextField id="appName" title="App Name" placeholder="YouTube Music" value={appName} onChange={setAppName} />
+      <Form.TextField id="chromeFlags" title="Extra Chrome Flags" placeholder="--start-maximized" />
       <Form.Separator />
-      <Form.Description text="Creates beautiful native macOS apps from any website using Chrome in app mode. Each app gets its own profile, icon, and window class." />
+      <Form.Description text="Simple. Fast. Icons always work. Like the good old days." />
     </Form>
   );
 }
