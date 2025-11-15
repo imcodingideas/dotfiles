@@ -13,6 +13,7 @@ path=(
   /opt/homebrew/sbin
   /opt/homebrew/opt/mysql@8.0/bin
   ~/.local/bin
+  ~/.config/herd-lite/bin
   ~/.composer/vendor/bin
   /usr/local/bin
   /usr/local/sbin
@@ -23,6 +24,8 @@ path=(
   /usr/local/git/bin
   $path
 )
+
+export PHP_INI_SCAN_DIR=~/.config/herd-lite/bin:$PHP_INI_SCAN_DIR
 
 # Add pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
