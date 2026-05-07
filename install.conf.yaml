@@ -12,6 +12,7 @@
     ~/.functions.zsh: zsh/functions.zsh
     ~/.aliases.zsh: zsh/aliases.zsh
     ~/.fzf.zsh: zsh/fzf.zsh
+    ~/.fzf-tab.zsh: zsh/fzf-tab.zsh
     # ghostty
     ~/.config/ghostty/config: ghostty/config
     # starship
@@ -37,6 +38,9 @@
 - shell:
     - description: Hushing login
       command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
+
+    - description: Installing fzf-tab as Oh My Zsh custom plugin
+      command: '[ -d ~/.oh-my-zsh/custom/plugins/fzf-tab ] || git clone --depth=1 https://github.com/Aloxaf/fzf-tab ~/.oh-my-zsh/custom/plugins/fzf-tab'
       
     - description: Setting Screenshots location
       command: defaults write com.apple.screencapture location ~/Documents/Screenshots

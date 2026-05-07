@@ -9,6 +9,8 @@ tap "ngrok/ngrok"
 tap "stripe/stripe-cli"
 # Run your GitHub Actions locally
 brew "act"
+# Magical shell history (replaces Ctrl-R, syncs across machines)
+brew "atuin"
 # Library for manipulating PNG images
 brew "libpng"
 # Framework for layout and rendering of i18n text
