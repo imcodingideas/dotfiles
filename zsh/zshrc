@@ -1,3 +1,9 @@
+# brew shellenv
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# mise
+eval "$(~/.local/bin/mise activate)"
+
 # ==== Oh My Zsh Configuration ====
 export ZSH=~/.oh-my-zsh 
 ZSH_THEME="robbyrussell"
@@ -11,9 +17,8 @@ typeset -U path
 path=(
   /opt/homebrew/bin
   /opt/homebrew/sbin
-  /opt/homebrew/opt/mysql@8.0/bin
+  /opt/homebrew/opt/mysql-client/bin
   ~/.local/bin
-  ~/.config/herd-lite/bin
   ~/.composer/vendor/bin
   /usr/local/bin
   /usr/local/sbin
@@ -25,22 +30,19 @@ path=(
   $path
 )
 
-export PHP_INI_SCAN_DIR=~/.config/herd-lite/bin:$PHP_INI_SCAN_DIR
-
 # Add pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
 [ -d "$PNPM_HOME" ] && path=($PNPM_HOME $path)
 
 # ==== Environment Variables ====
 export LANG=en_US.UTF-8
-export OP_ACCOUNT=my.1password.com
 
 # ==== Sources and Completions ====
 [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f ~/.functions.zsh ] && source ~/.functions.zsh
 [ -f ~/.aliases.zsh ] && source ~/.aliases.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.1password.zsh ] && source ~/.1password.zsh
+[ -f ~/.secrets.zsh ] && source ~/.secrets.zsh
 
 # Homebrew autocomplete
 if type brew &>/dev/null; then
@@ -55,9 +57,6 @@ fi
 
 # zoxide
 eval "$(zoxide init zsh)"
-
-# nvm
-[ -s "$(brew --prefix nvm)/nvm.sh" ] && source "$(brew --prefix nvm)/nvm.sh"
 
 # direnv
 eval "$(direnv hook zsh)"

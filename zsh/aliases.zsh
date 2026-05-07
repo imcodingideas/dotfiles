@@ -23,7 +23,6 @@ alias restore-from="git restore --source"
 alias tm="tmux"
 alias tml="tmux ls"
 alias tma="tmux attach -t \$(tmux ls -F '#{session_name}' | fzf)"
-alias tmpl="tmuxp load ." # tmuxp load session
 
 # Tools
 alias d='docker'

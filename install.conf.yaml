@@ -12,7 +12,6 @@
     ~/.functions.zsh: zsh/functions.zsh
     ~/.aliases.zsh: zsh/aliases.zsh
     ~/.fzf.zsh: zsh/fzf.zsh
-    ~/.1password.zsh: zsh/1password.zsh
     # ghostty
     ~/.config/ghostty/config: ghostty/config
     # git
@@ -25,7 +24,7 @@
     ~/.config/nvim/:
       glob: true
       path: vim/*
-    ~/.local/bin/fix-audio: raycast-extensions/bin/fix-audio
+    ~/.local/bin/fix-audio: raycast/bin/fix-audio
 
 - create:
     - ~/Code

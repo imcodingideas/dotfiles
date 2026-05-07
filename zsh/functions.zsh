@@ -107,6 +107,7 @@ set-wallpaper() {
 }
 
 auto-switch-node-version() {
+  command -v nvm_find_nvmrc >/dev/null 2>&1 || return
   NVMRC_PATH=$(nvm_find_nvmrc)
   CURRENT_NODE_VERSION=$(nvm version)
 
@@ -139,7 +140,11 @@ auto-switch-node-version() {
       fi
 
       # Convert the .nvmrc path to a relative one (if possible) for readability
-      RELATIVE_NVMRC_PATH="$(realpath --relative-to=$(pwd) $NVMRC_PATH 2> /dev/null || echo $NVMRC_PATH)"
+      if command -v grealpath >/dev/null 2>&1; then
+        RELATIVE_NVMRC_PATH="$(grealpath --relative-to="$(pwd)" "$NVMRC_PATH" 2>/dev/null || echo "$NVMRC_PATH")"
+      else
+        RELATIVE_NVMRC_PATH="$NVMRC_PATH"
+      fi
 
       # Print a clear warning message
       echo ""

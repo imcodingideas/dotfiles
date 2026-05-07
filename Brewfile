@@ -1,14 +1,12 @@
 tap "1password/tap"
-tap "codeship/taps"
+tap "atlassian/acli"
+tap "fluxcd/tap"
 tap "guumaster/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "moncho/dry"
-tap "mongodb/brew"
 tap "ngrok/ngrok"
-tap "nikitabobko/tap"
 tap "stripe/stripe-cli"
-tap "wix/brew"
 # Run your GitHub Actions locally
 brew "act"
 # Library for manipulating PNG images
@@ -33,8 +31,6 @@ brew "ansible-lint"
 brew "arp-scan"
 # Distributed revision control system
 brew "git"
-# Extendable version manager with support for Ruby, Node.js, Erlang & more
-brew "asdf"
 # Protocol definitions and daemon for D-Bus at-spi
 brew "at-spi2-core"
 # Tool for generating GNU Standards-compliant Makefiles
@@ -51,18 +47,6 @@ brew "cocoapods"
 brew "diff-so-fancy"
 # Load/unload environment variables based on $PWD
 brew "direnv"
-# Collection of reusable C++ library artifacts developed at Facebook
-brew "folly"
-# C++14 implementation of the TLS-1.3 standard
-brew "fizz"
-# Modular, composable client/server abstractions framework
-brew "wangle"
-# Facebook's branch of Apache Thrift, including a new C++ server
-brew "fbthrift"
-# Thrift functions for querying information from a service
-brew "fb303"
-# Shared library for Watchman and Eden projects
-brew "edencommon"
 # Toolkit for creating graphical user interfaces
 brew "gtk+3"
 # Multipurpose sniffer/interceptor/logger for switched LAN
@@ -107,8 +91,6 @@ brew "lazygit"
 brew "luajit"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
-# QUIC transport protocol implementation
-brew "mvfst"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Port scanning utility for large networks
@@ -139,12 +121,8 @@ brew "sponge"
 brew "stripe-cli"
 # Change macOS audio source from the command-line
 brew "switchaudio-osx"
-# Code-search similar to ack
-brew "the_silver_searcher"
 # Terminal multiplexer
 brew "tmux"
-# Watch files and take action when they change
-brew "watchman"
 # Internet file retriever
 brew "wget"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
@@ -155,6 +133,50 @@ brew "yt-dlp"
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
+# Modern encryption tool with small explicit keys
+brew "age"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# DigitalOcean command-line tool
+brew "doctl"
+# Kubernetes CLI tool that wraps kubectl
+brew "k9s"
+# Static code analysis for Kubernetes manifests
+brew "kube-score"
+# Kubernetes manifest validator
+brew "kubeconform"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Next-gen compiler infrastructure
+brew "llvm"
+# Open source relational database management system
+brew "mysql-client"
+# Platform built on V8 to build network applications
+brew "node"
+# AI-powered terminal coding agent
+brew "opencode"
+# Install and Run Python Applications in Isolated Environments
+brew "pipx"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Safe, concurrent, practical language
+brew "rust"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Editor of encrypted files
+brew "sops"
+# Non-interactive ssh password auth
+brew "sshpass"
+# Tool to build, change, and version infrastructure
+brew "terraform"
+# Linter for Terraform files
+brew "tflint"
+# Linter for YAML files
+brew "yamllint"
+# Atlassian command-line tool
+brew "atlassian/acli/acli"
+# Flux CD CLI
+brew "fluxcd/tap/flux"
 # Your dev tool to manage /etc/hosts like a pro
 brew "guumaster/tap/hostctl"
 # a Docker manager for the terminal
@@ -165,29 +187,31 @@ cask "1password"
 cask "1password-cli"
 # Tools for building Android applications
 cask "android-studio"
-# Allows connection to a computer remotely
-cask "anydesk"
+# AWS VPN client
+cask "aws-vpn-client"
 # Terminal-based AI coding assistant
 cask "claude-code"
-# CI/CD as a service
-cask "codeship-jet"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
 # Update and configure Elgato Capture devices
 cask "elgato-capture-device-utility"
 # Collaborative team software
 cask "figma"
+# Web browser
+cask "firefox@developer-edition"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-# For browse or develop RAW images and tethered shooting on Sony cameras
-cask "imaging-edge"
+# Web browser
+cask "google-chrome"
 # Keyboard customiser
 cask "karabiner-elements"
 # App to manage software development and track bugs
-cask "linear-linear"
+cask "linear"
 # Intercept, modify, replay, save HTTP/S traffic
 cask "mitmproxy"
 # Reverse proxy, secure introspectable tunnels to localhost
@@ -198,27 +222,19 @@ cask "nordvpn"
 cask "postman"
 # Control your tools with a few keystrokes
 cask "raycast"
-# Standalone app for debugging React Native apps
-cask "react-native-debugger"
-# Desktop app for inspecting React JS and React Native projects
-cask "reactotron"
-# Video chat, voice call and instant messaging application
-cask "skype"
 # Team communication and collaboration software
 cask "slack"
-# Free and open-source OpenVPN client
-cask "tunnelblick"
+# AI-powered voice transcription
+cask "superwhisper"
 # Open-source code editor
 cask "visual-studio-code"
-# JavaScript IDE
-cask "webstorm"
 # Native desktop client for WhatsApp
 cask "whatsapp"
-# Connect to Windows
-cask "windows-app"
 # Video communication and virtual meeting platform
 cask "zoom"
+vscode "anthropic.claude-code"
 vscode "arcticicestudio.nord-visual-studio-code"
+vscode "bierner.markdown-mermaid"
 vscode "bradlc.vscode-tailwindcss"
 vscode "coachrichbart.better-jest"
 vscode "dbaeumer.vscode-eslint"
@@ -226,15 +242,18 @@ vscode "docker.docker"
 vscode "esbenp.prettier-vscode"
 vscode "github.copilot"
 vscode "github.copilot-chat"
+vscode "github.vscode-github-actions"
 vscode "graphql.vscode-graphql"
 vscode "graphql.vscode-graphql-syntax"
 vscode "mrmlnc.vscode-duplicate"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.makefile-tools"
 vscode "naumovs.color-highlight"
 vscode "nrwl.angular-console"
 vscode "nur.just-black"
 vscode "rebornix.toggle"
 vscode "ritwickdey.liveserver"
+vscode "vue.volar"
 vscode "whizkydee.material-palenight-theme"
