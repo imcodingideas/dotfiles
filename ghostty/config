@@ -21,5 +21,7 @@ shell-integration-features = no-cursor
 
 # Keyboard bindings
 keybind = f11=toggle_fullscreen
+
 # Quake-style drop-down terminal — toggle from anywhere with Cmd+`
 keybind = global:cmd+grave_accent=toggle_quick_terminal
+quick-terminal-position = bottom
