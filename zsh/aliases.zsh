@@ -26,7 +26,6 @@ alias tma="tmux attach -t \$(tmux ls -F '#{session_name}' | fzf)"
 
 # Tools
 alias d='docker'
-n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
 
 # Homebrew maintenance
 alias brewdump='brew bundle dump --describe --force'

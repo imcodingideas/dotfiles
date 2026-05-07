@@ -5,8 +5,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(~/.local/bin/mise activate)"
 
 # ==== Oh My Zsh Configuration ====
-export ZSH=~/.oh-my-zsh 
-ZSH_THEME="robbyrussell"
+export ZSH=~/.oh-my-zsh
+ZSH_THEME=""
 plugins=(git brew node macos nvm z)
 
 source "$ZSH/oh-my-zsh.sh"
@@ -26,7 +26,6 @@ path=(
   /bin
   /usr/sbin
   /sbin
-  /usr/local/git/bin
   $path
 )
 
@@ -44,10 +43,9 @@ export LANG=en_US.UTF-8
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.secrets.zsh ] && source ~/.secrets.zsh
 
-# Homebrew autocomplete
+# Homebrew autocomplete (compinit already run by Oh My Zsh)
 if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
-  autoload -Uz compinit && compinit
 fi
 
 # rbenv
@@ -60,3 +58,6 @@ eval "$(zoxide init zsh)"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# starship prompt
+eval "$(starship init zsh)"

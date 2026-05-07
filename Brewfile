@@ -167,6 +167,8 @@ brew "shellcheck"
 brew "sops"
 # Non-interactive ssh password auth
 brew "sshpass"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Tool to build, change, and version infrastructure
 brew "terraform"
 # Linter for Terraform files

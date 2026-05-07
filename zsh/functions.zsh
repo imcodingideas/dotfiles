@@ -2,6 +2,9 @@
 #
 # Defines environment variables.
 
+# Open neovim — bare invocation opens the cwd
+n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
+
 # Find and kill port. i.e. kp 3000
 function kp() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
 
@@ -103,7 +106,7 @@ transcode-video-4K() {
 }
 
 set-wallpaper() {
-  osascript -e 'tell application "System Events" to tell every desktop to set picture to "~/Pictures/wallpaper.png" as POSIX file'
+  osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"$HOME/.dotfiles/wallpaper/wallpaper.png\" as POSIX file"
 }
 
 auto-switch-node-version() {

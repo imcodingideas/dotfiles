@@ -14,6 +14,8 @@
     ~/.fzf.zsh: zsh/fzf.zsh
     # ghostty
     ~/.config/ghostty/config: ghostty/config
+    # starship
+    ~/.config/starship.toml: starship/starship.toml
     # git
     ~/.gitignore_global: git/gitignore_global
     ~/.gitconfig: git/gitconfig
