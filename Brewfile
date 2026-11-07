@@ -203,6 +203,7 @@ cask "elgato-capture-device-utility"
 cask "figma"
 # Web browser
 cask "firefox@developer-edition"
+cask "font-caskaydia-mono-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
