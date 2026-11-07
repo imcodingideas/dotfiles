@@ -15,6 +15,9 @@
     ~/.fzf-tab.zsh: zsh/fzf-tab.zsh
     # ghostty
     ~/.config/ghostty/config: ghostty/config
+    # herdr
+    ~/.config/herdr-app/settings.json: herdr/settings.json
+    ~/.config/herdr-app/themes/tokyonight.json: herdr/themes/tokyonight.json
     # starship
     ~/.config/starship.toml: starship/starship.toml
     # git

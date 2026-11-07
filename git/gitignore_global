@@ -6,3 +6,4 @@ node_modules
 
 # Compiled Lua sources
 luac.out
+**/.claude/settings.local.json

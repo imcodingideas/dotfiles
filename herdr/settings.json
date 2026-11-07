@@ -1,0 +1,11 @@
+{
+  "zoom": 1.2,
+  "sounds": {
+    "enabled": true
+  },
+  "font_ligatures": false,
+  "minimum_contrast": 1.0,
+  "theme": "tokyonight",
+  "font": "CaskaydiaMono Nerd Font",
+  "font_size": 20
+}

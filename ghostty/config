@@ -1,6 +1,7 @@
 # https://ghostty.org/docs/config/reference
 
-theme = Nord
+theme = TokyoNight
+cursor-color = #7aa2f7
 
 # Window
 window-padding-x = 14
