@@ -2,7 +2,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # mise
-eval "$(~/.local/bin/mise activate)"
+eval "$(~/.local/bin/mise activate zsh)"
 
 # ==== Oh My Zsh Configuration ====
 export ZSH=~/.oh-my-zsh
@@ -65,7 +65,3 @@ eval "$(atuin init zsh --disable-up-arrow)"
 
 # starship prompt
 eval "$(starship init zsh)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(~/.local/bin/mise activate)"
-eval "$(/Users/joseph/.local/bin/mise activate zsh)"
